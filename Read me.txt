@@ -1,0 +1,32 @@
+#################   READ ME file for regression implementation with gradient decent ########################
+Used both windows cmd and git for file transfers and execution
+1) Transfer the file to the server:
+pscp linereg.py yxlin.csv yxlin2.csv kkhuran1@dsba-hadoop.uncc.edu:/users/kkhuran1/
+
+2) Create a folder in Hadoop and move the files
+hadoop fs -put yxlin2.csv /user/kkhuran1/input
+hadoop fs -put yxlin.csv /user/kkhuran1/input
+
+3) Gradient decent is implemented please give the arguments accordingly
+Execute the program for yxlin by giving the requiredaplha value and iterations 
+spark-submit linereg.py /user/kkhuran1/input/yxlin.csv 0.01 4000 > yxlin.out
+
+4) Gradient decent is implemented please give the arguments accordingly
+Execute the program for yxlin2 by giving the required aplha value and iterations
+spark-submit linereg.py /user/kkhuran1/input/yxlin2.csv 0.001 4000 > yxlin2.out
+
+5) cat the file files to check the results
+cat yxlin.out
+cat yxlin2.out
+
+6) Transfer the files to local folder
+pscp kkhuran1@dsba-hadoop.uncc.edu:/users/kkhuran1/yxlin2.out "E:\"
+
+Similary for program without gradient descent
+
+1)pscp linereg_without_GD.py yxlin.csv yxlin2.csv kkhuran1@dsba-hadoop.uncc.edu:/users/kkhuran1/
+2)spark-submit linereg_without_GD.py /user/kkhuran1/input/yxlin.csv > yxlin_without_GD.out
+3)spark-submit linereg_without_GD.py /user/kkhuran1/input/yxlin2.csv > yxlin2_without_GD.out
+4)cat yxlin_without_GD.out
+5)cat yxlin2_without_GD.out
+
